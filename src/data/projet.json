@@ -1,0 +1,149 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "Nina Carducci - Optimisation & SEO",
+      "slug": "nina-carducci",
+      "image": "/images/nina-carducci.jpg",
+      "githubUrl": "https://github.com/Yboneks/Projet-Nina-Carducci",
+      "contexte": "Site web d'une photographe professionnelle nécessitant une optimisation complète pour améliorer ses performances, son référencement et son accessibilité. Le site présentait des temps de chargement élevés et des problèmes d'accessibilité impactant l'expérience utilisateur et le SEO.",
+      "objectifs": [
+        "Optimiser les performances globales du site",
+        "Améliorer le référencement naturel (SEO)",
+        "Garantir l'accessibilité pour tous les utilisateurs",
+        "Réduire significativement les temps de chargement",
+        "Obtenir des scores Lighthouse optimaux"
+      ],
+      "stack": [
+        { "name": "HTML5", "icon": "FaHtml5" },
+        { "name": "CSS3", "icon": "FaCss3Alt" },
+        { "name": "JavaScript", "icon": "SiJavascript" },
+        { "name": "Lighthouse", "icon": "SiLighthouse" },
+        { "name": "WebP", "icon": "BsFileImage" }
+      ],
+      "competences": [
+        "Optimisation des performances web",
+        "Techniques de référencement SEO (balises meta, structure sémantique)",
+        "Optimisation et conversion d'images (format WebP)",
+        "Minification des fichiers CSS et JavaScript",
+        "Audit et amélioration de l'accessibilité web (WCAG)",
+        "Utilisation d'outils d'analyse (Lighthouse, Wave)",
+        "Mise en cache et optimisation du chargement"
+      ],
+      "resultats": [
+        "Score Lighthouse parfait (100/100) sur toutes les métriques",
+        "Réduction drastique des temps de chargement",
+        "Amélioration significative de l'accessibilité (validation Wave)",
+        "Optimisation complète des images au format WebP",
+        "Site totalement responsive et performant"
+      ],
+      "ameliorations": [
+        "Mise en place d'un système de lazy loading avancé",
+        "Implémentation d'un CDN pour une diffusion mondiale optimale",
+        "Ajout de Rich Snippets pour améliorer le SEO",
+        "Migration vers un framework moderne (Next.js) pour le SSR",
+        "Optimisation progressive web app (PWA)"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Kasa - Application de location immobilière",
+      "slug": "kasa",
+      "image": "/images/kasa.jpg",
+      "githubUrl": "https://github.com/Yboneks/Project-Kaza",
+      "contexte": "Développement d'une application web moderne pour Kasa, une entreprise de location d'appartements entre particuliers. Le projet consistait à créer une refonte complète de leur plateforme en utilisant React et une architecture moderne avec des composants réutilisables.",
+      "objectifs": [
+        "Développer une application React moderne et performante",
+        "Créer une interface utilisateur fluide et responsive",
+        "Implémenter un système de navigation avec React Router",
+        "Gérer les données dynamiques depuis un fichier JSON",
+        "Assurer une expérience utilisateur optimale"
+      ],
+      "stack": [
+        { "name": "React", "icon": "FaReact" },
+        { "name": "React Router", "icon": "SiReactrouter" },
+        { "name": "JavaScript ES6+", "icon": "SiJavascript" },
+        { "name": "CSS3", "icon": "FaCss3Alt" },
+        { "name": "Sass", "icon": "FaSass" }
+      ],
+      "competences": [
+        "Développement d'applications React avec composants fonctionnels",
+        "Utilisation des Hooks React (useState, useEffect)",
+        "Mise en place du routing avec React Router",
+        "Création de composants réutilisables et modulaires",
+        "Gestion d'état local et manipulation de données",
+        "Développement d'un carousel d'images interactif",
+        "Implémentation de composants Collapse animés",
+        "Responsive design et animations CSS"
+      ],
+      "resultats": [
+        "Application React entièrement fonctionnelle et responsive",
+        "Navigation fluide entre les pages avec React Router",
+        "Carousel d'images interactif avec navigation",
+        "Composants Collapse pour l'affichage conditionnel d'informations",
+        "Code modulaire et maintenable avec composants réutilisables",
+        "Interface utilisateur moderne et intuitive"
+      ],
+      "ameliorations": [
+        "Connexion à une vraie API REST backend",
+        "Ajout d'un système de favoris avec localStorage",
+        "Implémentation d'un système de recherche et filtres avancés",
+        "Ajout d'animations plus poussées avec Framer Motion",
+        "Mise en place de tests unitaires avec Jest et React Testing Library",
+        "Optimisation des performances avec React.memo et useMemo"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Mon Vieux Grimoire - API de notation de livres",
+      "slug": "mon-vieux-grimoire",
+      "image": "/images/mon-vieux-grimoire.jpg",
+      "githubUrl": "https://github.com/Yboneks/Mon-Vieux-Grimoire",
+      "contexte": "Développement du backend pour un site de notation de livres pour la chaîne de librairies 'Le Vieux Grimoire'. Le projet nécessitait la création d'une API REST sécurisée avec gestion d'authentification, upload d'images optimisé et système de notation.",
+      "objectifs": [
+        "Créer une API REST sécurisée et performante",
+        "Implémenter un système d'authentification robuste",
+        "Gérer l'upload et l'optimisation des images",
+        "Développer un système de notation avec calcul de moyenne",
+        "Assurer la sécurité des données utilisateurs"
+      ],
+      "stack": [
+        { "name": "Node.js", "icon": "FaNodeJs" },
+        { "name": "Express.js", "icon": "SiExpress" },
+        { "name": "MongoDB", "icon": "SiMongodb" },
+        { "name": "JWT", "icon": "SiJsonwebtokens" },
+        { "name": "JavaScript", "icon": "SiJavascript" }
+      ],
+      "competences": [
+        "Développement d'API RESTful avec Node.js et Express",
+        "Modélisation de données avec MongoDB et Mongoose",
+        "Authentification sécurisée avec JWT et bcrypt",
+        "Gestion d'upload de fichiers avec Multer",
+        "Optimisation d'images avec Sharp (conversion WebP)",
+        "Mise en place de middleware de sécurité",
+        "CRUD complet (Create, Read, Update, Delete)",
+        "Calcul de moyennes et agrégation de données",
+        "Gestion des erreurs et validation des données"
+      ],
+      "resultats": [
+        "API REST complète et sécurisée",
+        "Système d'authentification fonctionnel avec tokens JWT",
+        "Gestion optimisée des images (conversion automatique en WebP)",
+        "Système de notation avec calcul automatique de la moyenne",
+        "Protection des routes sensibles avec middleware d'authentification",
+        "Base de données MongoDB structurée et performante",
+        "Hashage sécurisé des mots de passe avec bcrypt"
+      ],
+      "ameliorations": [
+        "Ajout d'un système de commentaires sur les livres",
+        "Implémentation de la pagination pour les listes de livres",
+        "Création d'un système de recommandations basé sur les notes",
+        "Ajout de filtres et recherche avancée",
+        "Mise en place de tests d'intégration avec Jest/Supertest",
+        "Implémentation d'un système de cache avec Redis",
+        "Ajout de la documentation API avec Swagger",
+        "Rate limiting pour protéger contre les abus"
+      ]
+    }
+  ]
+}
