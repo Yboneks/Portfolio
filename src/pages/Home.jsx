@@ -1,4 +1,39 @@
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import {Carousel} from '../components/Carousel';
+import {About} from '../pages/About';
+import {Hero} from '../components/Hero';
 
 export function Home() {
-    return <h1>Page d'acceuil</h1>
+    const location = useLocation();
+
+    // Gère le scroll automatique vers la section
+    useEffect(() => {
+        if (location.hash) {
+            const element = document.querySelector(location.hash);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+    }, [location]);
+
+    return (
+        <div>
+            {/* Section Accueil */}
+            <section id="accueil" className="min-h-screen">
+                <Hero/>
+            </section>
+
+            {/* Section À propos */}
+            <section id="a-propos" className="min-h-screen">
+                <About/>
+            </section>
+
+            {/* Section Projets */}
+            <section id="projets" className="min-h-screen">
+                <Carousel/>
+            </section>
+
+        </div>
+    );
 }

@@ -1,2 +1,7 @@
+@use 'base/base';
 @use 'layout/header';
 @use 'layout/footer';
+@use './components/carousel';
+@use './pages/projetdetail';
+@use './pages/about';
+@use './components/hero'

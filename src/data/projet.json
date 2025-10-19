@@ -4,7 +4,7 @@
       "id": 1,
       "title": "Nina Carducci - Optimisation & SEO",
       "slug": "nina-carducci",
-      "image": "/images/nina-carducci.jpg",
+      "image": "/assets/img/NinaCarducci.webp",
       "githubUrl": "https://github.com/Yboneks/Projet-Nina-Carducci",
       "contexte": "Site web d'une photographe professionnelle nécessitant une optimisation complète pour améliorer ses performances, son référencement et son accessibilité. Le site présentait des temps de chargement élevés et des problèmes d'accessibilité impactant l'expérience utilisateur et le SEO.",
       "objectifs": [
@@ -49,7 +49,7 @@
       "id": 2,
       "title": "Kasa - Application de location immobilière",
       "slug": "kasa",
-      "image": "/images/kasa.jpg",
+      "image": "/assets/img/LOGO-Kaza.svg",
       "githubUrl": "https://github.com/Yboneks/Project-Kaza",
       "contexte": "Développement d'une application web moderne pour Kasa, une entreprise de location d'appartements entre particuliers. Le projet consistait à créer une refonte complète de leur plateforme en utilisant React et une architecture moderne avec des composants réutilisables.",
       "objectifs": [
@@ -97,7 +97,7 @@
       "id": 3,
       "title": "Mon Vieux Grimoire - API de notation de livres",
       "slug": "mon-vieux-grimoire",
-      "image": "/images/mon-vieux-grimoire.jpg",
+      "image": "/assets/img/Logo-Grimoire.svg",
       "githubUrl": "https://github.com/Yboneks/Mon-Vieux-Grimoire",
       "contexte": "Développement du backend pour un site de notation de livres pour la chaîne de librairies 'Le Vieux Grimoire'. Le projet nécessitait la création d'une API REST sécurisée avec gestion d'authentification, upload d'images optimisé et système de notation.",
       "objectifs": [

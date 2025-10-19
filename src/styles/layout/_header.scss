@@ -1,52 +1,137 @@
-header {
+.header {
+    position: static; /* par défaut, ne pas être fixé sur les pages autres que la home */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2rem 3rem;
-    margin: 10px;
-    img {
-        min-height: 30px;
-        min-width: 80px;
+    padding: 1.5rem 3rem;
+    transition: all 0.3s ease;
+    background: transparent;
+    z-index: 1000;
+
+    // État quand on scroll
+    &--scrolled {
+        background: rgba(10, 14, 39, 0.95);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 20px rgba(0, 217, 255, 0.1);
+        padding: 1rem 3rem;
+
+        .header__logo {
+            width: 100px;
+        }
+
+        .header__nav ul li a {
+            color: #00d9ff;
+        }
     }
-    nav {
+
+    &__logo {
+        height: auto;
+        width: 120px;
+        max-width: 100%;
+        transition: all 0.3s ease;
+        filter: drop-shadow(0 0 10px rgba(0, 217, 255, 0.3));
+    }
+
+    &__nav {
         ul {
             display: flex;
             gap: 3rem;
             list-style: none;
             align-items: center;
             flex-wrap: nowrap;
+            margin: 0;
+            padding: 0;
+
             li {
                 a {
-                    color: #333;
+                    color: #fff;
                     text-decoration: none;
                     font-weight: 500;
-                    font-size: 24px;
+                    font-size: 1.1rem;
                     white-space: nowrap;
-                }
+                    position: relative;
+                    transition: all 0.3s ease;
+                    letter-spacing: 0.05em;
 
-                &:hover {
-                    text-decoration: underline;
-                    font-weight: bold;
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        bottom: -5px;
+                        left: 0;
+                        width: 0;
+                        height: 2px;
+                        background: linear-gradient(90deg, #00d9ff, #00ff88);
+                        transition: width 0.3s ease;
+                    }
+
+                    &:hover {
+                        color: #00d9ff;
+                        text-shadow: 0 0 10px rgba(0, 217, 255, 0.5);
+
+                        &::after {
+                            width: 100%;
+                        }
+                    }
                 }
             }    
         } 
     }
 }
 
-@media (max-width: 768px) {
-  header {
-    padding: 0.75rem 1rem;
-    gap: 20px;
-    nav {
-      ul {
-        gap: 1rem;
-        padding-left: 20px;
-        li {
-          a {
-            font-size: 16px;
-          }
-        }
-      }
+/* Classe appliquée uniquement quand on est sur la home (Header fixe en haut) */
+.header--fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: transparent;
+    z-index: 1000;
+}
+
+/* Classe quand l'utilisateur a scrollé (optionnelle) */
+.header--scrolled {
+    background: rgba(10, 14, 39, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px rgba(0, 217, 255, 0.1);
+    padding: 1rem 3rem;
+
+    .header__logo {
+        width: 100px;
     }
-  }
+
+    .header__nav ul li a {
+        color: #00d9ff;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 1rem;
+        flex-direction: column;
+        gap: 1rem;
+        background: rgba(10, 14, 39, 0.95);
+        backdrop-filter: blur(10px);
+
+        &--scrolled {
+            padding: 0.75rem 1rem;
+        }
+
+        &__logo {
+            width: 80px;
+        }
+
+        &__nav {
+            ul {
+                gap: 1.5rem;
+                flex-wrap: wrap;
+                justify-content: center;
+
+                li {
+                    a {
+                        font-size: 0.95rem;
+                    }
+                }
+            }
+        }
+    }
 }
