@@ -1,9 +1,36 @@
-import React from "react";
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 export function Footer() {
   return (
-    <footer>
-      <p>© {new Date().getFullYear()} Mon Portfolio</p>
+    <footer className="footer">
+      <div className="footer__container">
+        <div className="footer__social">
+          <a 
+            href="https://github.com/ton-username" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="footer__social-link"
+            aria-label="GitHub"
+            title="Voir mon GitHub"
+          >
+            <FaGithub />
+          </a>
+          <a 
+            href="https://linkedin.com/in/ton-profil" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="footer__social-link"
+            aria-label="LinkedIn"
+            title="Voir mon LinkedIn"
+          >
+            <FaLinkedin />
+          </a>
+        </div>
+
+        <p className="footer__copyright">
+          © {new Date().getFullYear()} Joshua Ormeray - Tous droits réservés
+        </p>
+      </div>
     </footer>
   );
 }

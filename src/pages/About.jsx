@@ -1,5 +1,3 @@
-import React from 'react';
-
 
 export function About() {
   return (
@@ -33,7 +31,7 @@ export function About() {
               Ce qui m'enthousiasme dans le développement web, c'est la diversité des défis techniques et la 
               capacité d'apprentissage continue qu'exige ce métier. Chaque projet est une opportunité d'explorer 
               de nouvelles solutions et d'améliorer mes compétences. La multitude de possibilités d'évolution dans 
-              ce secteur, notamment vers la <strong>cybersécurité</strong>, nourrit ma motivation au quotidien.
+              ce secteur, notamment vers la <strong>cybersécurité</strong>.
             </p>
           </div>
 

@@ -1,7 +1,27 @@
+// ========================================
+// VARIABLES - À importer EN PREMIER
+// ========================================
+@use './utils/variables' as *;
+
+// ========================================
+// BASE
+// ========================================
 @use 'base/base';
-@use 'layout/header';
-@use 'layout/footer';
+
+// ========================================
+// COMPONENTS
+// ========================================
+@use './components/hero';
 @use './components/carousel';
-@use './pages/projetdetail';
+@use './components/scrolltotop';
+
+// ========================================
+// PAGES
+// ========================================
 @use './pages/about';
-@use './components/hero'
+@use './pages/projetdetail';
+
+// ========================================
+// LAYOUT
+// ========================================
+@use 'layout/footer';

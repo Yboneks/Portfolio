@@ -1,13 +1,16 @@
-import { Outlet } from "react-router-dom";
-import { Header } from "../components/Header";
+import { Outlet, useLocation } from "react-router-dom";
 import { Footer } from "../components/Footer";
+import { ScrollToTop } from "../components/ScrollToTop";
 
 export function Layout() {
+    const location = useLocation();
+    const isHome = location.pathname === '/';
+
     return (
         <>
-        <Header/>
-        <Outlet/>
-        <Footer/>
+            <Outlet />
+            <Footer />
+            <ScrollToTop/>
         </>
-    )
+    );
 }

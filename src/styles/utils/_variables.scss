@@ -1,0 +1,167 @@
+// ========================================
+// COULEURS PRINCIPALES - THÈME CYBER
+// ========================================
+
+// Couleurs primaires
+$color-primary-cyan: #00d9ff;
+$color-primary-green: #00ff88;
+$color-primary-purple: #ff00ff;
+$color-primary-blue: #00ffff;
+
+// Couleurs de fond
+$bg-dark-primary: #0a0e27;
+$bg-dark-secondary: #1a1a2e;
+$bg-dark-tertiary: #16213e;
+$bg-card: rgba(26, 26, 46, 0.6);
+$bg-card-opaque: rgba(26, 26, 46, 0.8);
+
+// Couleurs de texte
+$text-white: #ffffff;
+$text-light: #d0d0d0;
+$text-gray: #a0a0a0;
+$text-dark: #0a0e27;
+
+// Couleurs d'overlay
+$overlay-dark: rgba(0, 0, 0, 0.2);
+$overlay-darker: rgba(0, 0, 0, 0.3);
+
+// ========================================
+// GRADIENTS
+// ========================================
+
+$gradient-primary: linear-gradient(135deg, $color-primary-cyan 0%, $color-primary-green 100%);
+$gradient-background: linear-gradient(135deg, $bg-dark-primary 0%, $bg-dark-secondary 50%, $bg-dark-tertiary 100%);
+$gradient-text: linear-gradient(135deg, $color-primary-cyan 0%, $color-primary-green 100%);
+$gradient-border: linear-gradient(135deg, $color-primary-cyan, $color-primary-green);
+$gradient-glow: linear-gradient(135deg, rgba(0, 217, 255, 0.1), rgba(0, 255, 136, 0.1));
+
+// ========================================
+// COULEURS RGBA (pour les effets de transparence)
+// ========================================
+
+// Cyan
+$cyan-10: rgba(0, 217, 255, 0.1);
+$cyan-20: rgba(0, 217, 255, 0.2);
+$cyan-30: rgba(0, 217, 255, 0.3);
+$cyan-40: rgba(0, 217, 255, 0.4);
+$cyan-50: rgba(0, 217, 255, 0.5);
+
+// Green
+$green-10: rgba(0, 255, 136, 0.1);
+$green-30: rgba(0, 255, 136, 0.3);
+$green-50: rgba(0, 255, 136, 0.5);
+
+// ========================================
+// BORDURES & OMBRES
+// ========================================
+
+$border-color-primary: rgba(0, 217, 255, 0.2);
+$border-color-hover: rgba(0, 217, 255, 0.5);
+$border-color-active: rgba(0, 217, 255, 0.6);
+
+$shadow-glow-cyan: 0 0 20px rgba(0, 217, 255, 0.5);
+$shadow-glow-cyan-strong: 0 0 30px rgba(0, 217, 255, 0.8);
+$shadow-glow-green: 0 0 20px rgba(0, 255, 136, 0.5);
+$shadow-dark: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+$shadow-dark-hover: 0 10px 20px -3px rgba(0, 217, 255, 0.2);
+
+// ========================================
+// ESPACEMENTS & DIMENSIONS
+// ========================================
+
+$spacing-xs: 0.5rem;   // 8px
+$spacing-sm: 1rem;     // 16px
+$spacing-md: 1.5rem;   // 24px
+$spacing-lg: 3rem;     // 32px
+$spacing-xl: 3rem;     // 48px
+$spacing-xxl: 4rem;    // 64px
+
+$border-radius-sm: 0.5rem;
+$border-radius-md: 0.75rem;
+$border-radius-lg: 1rem;
+$border-radius-xl: 1.5rem;
+$border-radius-full: 50%;
+
+// ========================================
+// TRANSITIONS & ANIMATIONS
+// ========================================
+
+$transition-fast: 0.2s ease;
+$transition-normal: 0.3s ease;
+$transition-slow: 0.4s ease;
+$transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+$animation-duration-fast: 2s;
+$animation-duration-normal: 3s;
+$animation-duration-slow: 8s;
+$animation-duration-very-slow: 20s;
+
+// ========================================
+// TYPOGRAPHIE
+// ========================================
+
+$font-size-xs: 0.875rem;    // 14px
+$font-size-sm: 1rem;         // 16px
+$font-size-md: 1.1rem;       // 17.6px
+$font-size-lg: 1.25rem;      // 20px
+$font-size-xl: 1.5rem;       // 24px
+$font-size-xxl: 2rem;        // 32px
+$font-size-huge: 3rem;       // 48px
+
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-black: 900;
+
+$line-height-tight: 1.6;
+$line-height-normal: 1.7;
+$line-height-relaxed: 1.8;
+
+$letter-spacing-tight: 0.05em;
+$letter-spacing-normal: 0.1em;
+$letter-spacing-wide: 0.2em;
+$letter-spacing-wider: 0.3em;
+
+// ========================================
+// GRILLE CYBER (background pattern)
+// ========================================
+
+$grid-cyber-color: rgba(0, 255, 255, 0.02);
+$grid-cyber-color-strong: rgba(0, 255, 255, 0.03);
+$grid-cyber-size: 50px;
+
+// ========================================
+// BREAKPOINTS (Responsive)
+// ========================================
+
+$breakpoint-mobile: 480px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+$breakpoint-large: 1200px;
+
+// ========================================
+// Z-INDEX (Gestion des couches)
+// ========================================
+
+$z-base: 1;
+$z-content: 10;
+$z-header: 100;
+$z-scroll-top: 999;
+$z-modal: 1000;
+
+// ========================================
+// EFFETS VISUELS
+// ========================================
+
+$backdrop-blur: blur(10px);
+$backdrop-blur-light: blur(5px);
+
+$text-shadow-glow: 0 0 10px rgba(0, 217, 255, 0.3);
+$text-shadow-glow-strong: 0 0 20px rgba(0, 217, 255, 0.8);
+$text-shadow-green: 0 0 8px rgba(0, 255, 136, 0.3);
+
+$drop-shadow-cyan: drop-shadow(0 0 10px rgba(0, 217, 255, 0.3));
+$drop-shadow-cyan-strong: drop-shadow(0 0 15px rgba(0, 217, 255, 0.5));
+$drop-shadow-green: drop-shadow(0 0 5px rgba(0, 255, 136, 0.5));

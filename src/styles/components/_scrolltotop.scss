@@ -1,0 +1,89 @@
+// Importer les variables
+@use '../utils/variables' as *;
+
+.scroll-to-top {
+    position: fixed;
+    bottom: $spacing-lg;
+    right: $spacing-lg;
+    width: 50px;
+    height: 50px;
+    background: $gradient-primary;
+    border: 2px solid $border-color-primary;
+    border-radius: $border-radius-full;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: $z-scroll-top;
+    transition: $transition-normal;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    box-shadow: $shadow-glow-cyan;
+
+    svg {
+        color: $text-dark;
+        font-size: 1.2rem;
+        transition: transform $transition-normal;
+    }
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: $shadow-glow-cyan-strong;
+
+        svg {
+            transform: translateY(-3px);
+        }
+    }
+
+    &:active {
+        transform: translateY(-2px) scale(0.95);
+    }
+
+    // Classe pour rendre le bouton visible
+    &--visible {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    // Animation de pulsation
+    &--visible::before {
+        content: '';
+        position: absolute;
+        inset: -5px;
+        border-radius: $border-radius-full;
+        border: 2px solid $color-primary-cyan;
+        animation: pulse $animation-duration-fast ease-in-out infinite;
+        opacity: 0.5;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+// Responsive
+@media (max-width: $breakpoint-tablet) {
+    .scroll-to-top {
+        bottom: $spacing-md;
+        right: $spacing-md;
+        width: 45px;
+        height: 45px;
+
+        svg {
+            font-size: $font-size-sm;
+        }
+    }
+}

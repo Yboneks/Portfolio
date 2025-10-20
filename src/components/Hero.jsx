@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import Logo from "../assets/img/LogoPortfolio.webp";
 
 export function Hero() {
     const [showNav, setShowNav] = useState(false);
@@ -8,7 +10,7 @@ export function Hero() {
         // Animation du titre
         setTimeout(() => setTitleVisible(true), 300);
         // Apparition de la navigation après 2 secondes
-        setTimeout(() => setShowNav(true), 2000);
+        setTimeout(() => setShowNav(true), 1000);
     }, []);
 
     const scrollToSection = (sectionId) => {
@@ -25,6 +27,11 @@ export function Hero() {
             {/* Effet de grille cyber */}
             <div className="hero__grid"></div>
             
+            {/* Logo intégré dans le Hero */}
+            <div className="hero__header">
+                <img src={Logo} alt="Logo du développeur" className="hero__logo" />
+            </div>
+
             <div className="hero__content">
                 <h1 className={`hero__title ${titleVisible ? 'hero__title--visible' : ''}`}>
                     <span className="hero__title-line">Bienvenue sur le portfolio de</span>
@@ -58,6 +65,8 @@ export function Hero() {
 
             {/* Particules décoratives */}
             <div className="hero__particles">
+                <div className="hero__particle"></div>
+                <div className="hero__particle"></div>
                 <div className="hero__particle"></div>
                 <div className="hero__particle"></div>
                 <div className="hero__particle"></div>

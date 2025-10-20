@@ -1,39 +1,81 @@
-// Variables (à ajuster selon votre charte graphique)
-$primary-color: #6366f1;
-$secondary-color: #8b5cf6;
-$dark-bg: #0f172a;
-$card-bg: #ffffff;
-$text-dark: #1f2937;
-$text-light: #6b7280;
-$shadow-color: rgba(0, 0, 0, 0.1);
-$transition-speed: 0.3s;
+// Importer les variables
+@use '../utils/variables' as *;
 
 // Container principal
 .project-carousel-container {
+  position: relative;
   min-height: 100vh;
-  background: linear-gradient(135deg, $dark-bg 0%, $secondary-color 50%, $dark-bg 100%);
+  background: $gradient-background;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
+  padding: 100px $spacing-lg;
+  overflow: hidden;
+
+  // Overlay
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: $overlay-dark;
+    z-index: $z-base;
+  }
+
+  // Grille cyber en arrière-plan
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: 
+      linear-gradient($grid-cyber-color 1px, transparent 1px),
+      linear-gradient(90deg, $grid-cyber-color 1px, transparent 1px);
+    background-size: $grid-cyber-size $grid-cyber-size;
+    z-index: $z-base;
+  }
 }
 
 .project-carousel-wrapper {
+  position: relative;
+  z-index: $z-content;
   width: 100%;
   max-width: 1000px;
 }
 
 // Titre principal
 .project-carousel-title {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: white;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: $font-weight-bold;
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: $spacing-xxl;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-normal;
   
-  @media (max-width: 768px) {
-    font-size: 2rem;
-    margin-bottom: 2rem;
+  // Gradient sur le texte
+  background: $gradient-text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  
+  position: relative;
+
+  &::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background: $gradient-border;
+    margin: 25px auto 0;
+    box-shadow: 0 0 15px $cyan-50;
+    animation: glowLine $animation-duration-fast ease-in-out infinite;
+  }
+  
+  @media (max-width: $breakpoint-tablet) {
+    margin-bottom: $spacing-xl;
+
+    &::after {
+      width: 60px;
+      margin-top: 20px;
+    }
   }
 }
 
@@ -44,16 +86,20 @@ $transition-speed: 0.3s;
 
 // Carte du projet
 .project-card {
-  background: $card-bg;
-  border-radius: 1rem;
-  box-shadow: 0 25px 50px -12px $shadow-color;
+  background: $bg-card-opaque;
+  backdrop-filter: $backdrop-blur;
+  border-radius: $border-radius-lg;
+  border: 1px solid $border-color-primary;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
   overflow: hidden;
   transform: scale(1);
-  transition: transform $transition-speed ease;
+  transition: $transition-smooth;
   cursor: pointer;
   
   &:hover {
     transform: scale(1.02);
+    box-shadow: 0 30px 60px -12px $cyan-30;
+    border-color: $border-color-hover;
   }
 }
 
@@ -62,11 +108,12 @@ $transition-speed: 0.3s;
   position: relative;
   height: 400px;
   width: 100%;
-  background: linear-gradient(135deg, #e9d5ff 0%, #bfdbfe 100%);
+  background: linear-gradient(135deg, $cyan-10 0%, $green-10 100%);
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-bottom: 1px solid $border-color-primary;
   
   img {
     width: 100%;
@@ -74,35 +121,41 @@ $transition-speed: 0.3s;
     object-fit: contain; 
     object-position: center;
     display: block;
+    transition: transform $transition-slow;
+  }
+
+  &:hover img {
+    transform: scale(1.05);
   }
   
-  @media (max-width: 768px) {
+  @media (max-width: $breakpoint-tablet) {
     height: 300px;
   }
   
-  @media (max-width: 480px) {
+  @media (max-width: $breakpoint-mobile) {
     height: 250px;
   }
 }
 
 // Contenu de la carte
 .project-card-content {
-  padding: 2rem;
+  padding: $spacing-lg;
   
-  @media (max-width: 768px) {
-    padding: 1.5rem;
+  @media (max-width: $breakpoint-tablet) {
+    padding: $spacing-md;
   }
 }
 
 .project-card-title {
-  font-size: 1.5rem;
+  font-size: $font-size-xl;
   font-weight: bold;
-  color: $text-dark;
-  margin-bottom: 1.5rem;
+  color: $color-primary-cyan;
+  margin-bottom: $spacing-md;
+  text-shadow: $text-shadow-glow;
   
-  @media (max-width: 768px) {
-    font-size: 1.25rem;
-    margin-bottom: 1rem;
+  @media (max-width: $breakpoint-tablet) {
+    font-size: $font-size-lg;
+    margin-bottom: $spacing-sm;
   }
 }
 
@@ -111,33 +164,37 @@ $transition-speed: 0.3s;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: $spacing-sm;
   
-  @media (max-width: 480px) {
+  @media (max-width: $breakpoint-mobile) {
     flex-direction: column;
     align-items: flex-start;
   }
 }
 
 .project-counter {
-  font-size: 0.875rem;
-  color: $text-light;
+  font-size: $font-size-xs;
+  color: $color-primary-green;
+  font-weight: $font-weight-medium;
 }
 
 // Lien GitHub
 .project-github-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  background-color: $text-dark;
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
+  gap: $spacing-xs;
+  background: $gradient-primary;
+  color: $text-dark;
+  padding: 0.6rem 1.2rem;
+  border-radius: $border-radius-sm;
   text-decoration: none;
-  transition: background-color $transition-speed ease;
+  font-weight: $font-weight-semibold;
+  transition: $transition-normal;
+  box-shadow: 0 0 15px $cyan-30;
   
   &:hover {
-    background-color: lighten($text-dark, 10%);
+    box-shadow: 0 0 25px rgba(0, 217, 255, 0.6);
+    transform: translateY(-2px);
   }
   
   .github-icon {
@@ -151,22 +208,25 @@ $transition-speed: 0.3s;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(255, 255, 255, 0.9);
-  color: $text-dark;
+  background: $cyan-20;
+  backdrop-filter: $backdrop-blur;
+  border: 1px solid $border-color-active;
+  color: $color-primary-cyan;
   width: 3rem;
   height: 3rem;
-  border: none;
-  border-radius: 50%;
-  box-shadow: 0 10px 15px -3px $shadow-color;
+  border-radius: $border-radius-full;
+  box-shadow: $shadow-dark;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all $transition-speed ease;
-  z-index: 10;
+  transition: $transition-normal;
+  z-index: $z-content;
   
   &:hover {
-    background-color: white;
+    background: $cyan-30;
+    border-color: rgba(0, 217, 255, 0.6);
+    box-shadow: $shadow-glow-cyan;
     transform: translateY(-50%) scale(1.1);
   }
   
@@ -179,7 +239,7 @@ $transition-speed: 0.3s;
     height: 1.5rem;
   }
   
-  @media (max-width: 768px) {
+  @media (max-width: $breakpoint-tablet) {
     width: 2.5rem;
     height: 2.5rem;
     
@@ -191,18 +251,18 @@ $transition-speed: 0.3s;
 }
 
 .carousel-btn-prev {
-  left: 1rem;
+  left: $spacing-sm;
   
-  @media (max-width: 768px) {
-    left: 0.5rem;
+  @media (max-width: $breakpoint-tablet) {
+    left: $spacing-xs;
   }
 }
 
 .carousel-btn-next {
-  right: 1rem;
+  right: $spacing-sm;
   
-  @media (max-width: 768px) {
-    right: 0.5rem;
+  @media (max-width: $breakpoint-tablet) {
+    right: $spacing-xs;
   }
 }
 
@@ -210,27 +270,39 @@ $transition-speed: 0.3s;
 .carousel-indicators {
   display: flex;
   justify-content: center;
-  gap: 0.5rem;
-  margin-top: 1.5rem;
+  gap: $spacing-xs;
+  margin-top: $spacing-lg;
 }
 
 .carousel-indicator {
   width: 0.75rem;
   height: 0.75rem;
   border: none;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: $border-radius-full;
+  background-color: $cyan-30;
   cursor: pointer;
-  transition: all $transition-speed ease;
+  transition: $transition-normal;
   padding: 0;
   
   &:hover {
-    background-color: rgba(255, 255, 255, 0.75);
+    background-color: $cyan-50;
+    box-shadow: 0 0 10px $cyan-50;
   }
   
   &.active {
     width: 2rem;
-    background-color: white;
-    border-radius: 1rem;
+    background: $gradient-border;
+    border-radius: $border-radius-lg;
+    box-shadow: 0 0 15px rgba(0, 217, 255, 0.6);
+  }
+}
+
+// Animation
+@keyframes glowLine {
+  0%, 100% {
+    box-shadow: 0 0 15px $cyan-50;
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(0, 217, 255, 0.8);
   }
 }

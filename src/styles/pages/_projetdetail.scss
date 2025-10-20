@@ -1,72 +1,110 @@
-// Variables
-$primary-color: #0004ff;
-$secondary-color: #8b5cf6;
-$dark-bg: #0f172a;
-$card-bg: #ffffff;
-$text-dark: #1f2937;
-$text-light: #6b7280;
-$border-color: #e5e7eb;
-$shadow-color: rgba(0, 0, 0, 0.1);
-$transition-speed: 0.3s;
+// Importer les variables
+@use '../utils/variables' as *;
 
 // Container principal
 .projet-detail-container {
+  position: relative;
   min-height: 100vh;
-  background: linear-gradient(135deg, $dark-bg 0%, $secondary-color 50%, $dark-bg 100%);
-  padding-bottom: 4rem;
+  background: $gradient-background;
+  padding-bottom: $spacing-xxl;
+  overflow: hidden;
+
+  // Overlay
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: $overlay-dark;
+    z-index: $z-base;
+  }
+
+  // Grille cyber
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: 
+      linear-gradient($grid-cyber-color 1px, transparent 1px),
+      linear-gradient(90deg, $grid-cyber-color 1px, transparent 1px);
+    background-size: $grid-cyber-size $grid-cyber-size;
+    z-index: $z-base;
+  }
 }
 
 // Projet non trouvé
 .projet-not-found {
+  position: relative;
+  z-index: $z-content;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: white;
-  gap: 2rem;
+  color: $text-white;
+  gap: $spacing-lg;
 
   h2 {
-    font-size: 2rem;
+    font-size: $font-size-xxl;
+    background: $gradient-text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 }
 
 // Bouton retour
 .btn-back {
+  position: relative;
+  z-index: $z-header;
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  background-color: rgba(255, 255, 255, 0.1);
-  color: white;
-  padding: 0.75rem 1.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 0.5rem;
-  font-size: 1rem;
+  gap: $spacing-xs;
+  background: $cyan-10;
+  backdrop-filter: $backdrop-blur;
+  color: $color-primary-cyan;
+  padding: 0.75rem $spacing-md;
+  border: 1px solid $border-color-primary;
+  border-radius: $border-radius-sm;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
   cursor: pointer;
-  transition: all $transition-speed ease;
-  margin: 2rem;
+  transition: $transition-normal;
+  margin: $spacing-lg;
+  text-shadow: $text-shadow-glow;
 
   &:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+    background: $cyan-20;
+    border-color: $border-color-hover;
+    box-shadow: 0 0 20px $cyan-40;
     transform: translateX(-5px);
+  }
+
+  svg {
+    transition: transform $transition-normal;
+  }
+
+  &:hover svg {
+    transform: translateX(-3px);
   }
 }
 
 // Header du projet
 .projet-header {
   position: relative;
+  z-index: $z-content;
 }
 
 .projet-hero {
   position: relative;
   height: 500px;
   overflow: hidden;
+  border-bottom: 2px solid $border-color-primary;
 
-  @media (max-width: 768px) {
+  @media (max-width: $breakpoint-tablet) {
     height: 400px;
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: $breakpoint-mobile) {
     height: 300px;
   }
 }
@@ -76,6 +114,13 @@ $transition-speed: 0.3s;
   height: 100%;
   object-fit: cover;
   object-position: center;
+  filter: brightness(0.7);
+  transition: transform $transition-normal;
+}
+
+.projet-hero:hover .projet-hero-image {
+  transform: scale(1.05);
+  filter: brightness(0.8);
 }
 
 .projet-hero-overlay {
@@ -83,78 +128,88 @@ $transition-speed: 0.3s;
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
-  padding: 3rem 2rem;
+  background: linear-gradient(to top, rgba(10, 14, 39, 0.95) 0%, transparent 100%);
+  padding: $spacing-xl $spacing-lg;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  gap: 2rem;
+  gap: $spacing-lg;
 
-  @media (max-width: 768px) {
+  @media (max-width: $breakpoint-tablet) {
     flex-direction: column;
     align-items: flex-start;
-    padding: 2rem 1.5rem;
+    padding: $spacing-lg $spacing-md;
   }
 }
 
 .projet-title {
   font-size: 2.5rem;
   font-weight: bold;
-  color: white;
+  color: $color-primary-cyan;
   margin: 0;
+  text-shadow: 0 0 20px $cyan-50;
 
-  @media (max-width: 768px) {
-    font-size: 2rem;
+  @media (max-width: $breakpoint-tablet) {
+    font-size: $font-size-xxl;
   }
 
-  @media (max-width: 480px) {
-    font-size: 1.5rem;
+  @media (max-width: $breakpoint-mobile) {
+    font-size: $font-size-xl;
   }
 }
 
 .btn-github {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  background-color: white;
+  gap: $spacing-xs;
+  background: $gradient-primary;
   color: $text-dark;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
+  padding: 0.75rem $spacing-md;
+  border-radius: $border-radius-sm;
   text-decoration: none;
-  font-weight: 600;
-  transition: all $transition-speed ease;
+  font-weight: $font-weight-semibold;
+  transition: $transition-normal;
+  box-shadow: 0 0 20px $cyan-40;
 
   &:hover {
-    background-color: $text-dark;
-    color: white;
-    transform: translateY(-2px);
+    box-shadow: 0 0 30px rgba(0, 217, 255, 0.7);
+    transform: translateY(-3px);
+  }
+
+  svg {
+    font-size: 1.2rem;
   }
 }
 
 // Contenu avec collapses
 .projet-content {
+  position: relative;
+  z-index: $z-content;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 3rem 2rem;
+  padding: $spacing-xl $spacing-lg;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: $spacing-md;
 
-  @media (max-width: 768px) {
-    padding: 2rem 1rem;
+  @media (max-width: $breakpoint-tablet) {
+    padding: $spacing-lg $spacing-sm;
   }
 }
 
 // Collapse
 .collapse {
-  background-color: $card-bg;
-  border-radius: 0.75rem;
+  background: $bg-card;
+  backdrop-filter: $backdrop-blur;
+  border: 1px solid $border-color-primary;
+  border-radius: $border-radius-md;
   overflow: hidden;
-  box-shadow: 0 4px 6px -1px $shadow-color;
-  transition: all $transition-speed ease;
+  box-shadow: $shadow-dark;
+  transition: $transition-normal;
 
   &:hover {
-    box-shadow: 0 10px 15px -3px $shadow-color;
+    box-shadow: $shadow-dark-hover;
+    border-color: $border-color-active;
   }
 }
 
@@ -163,38 +218,40 @@ $transition-speed: 0.3s;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem;
+  padding: $spacing-md;
   background-color: transparent;
   border: none;
   cursor: pointer;
-  transition: background-color $transition-speed ease;
+  transition: background-color $transition-normal;
 
   &:hover {
-    background-color: #f9fafb;
+    background-color: rgba(0, 217, 255, 0.05);
   }
 
   &.active {
-    background-color: #f3f4f6;
+    background-color: $cyan-10;
   }
 
   h3 {
     margin: 0;
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: $text-dark;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+    color: $color-primary-cyan;
     text-align: left;
+    text-shadow: $text-shadow-glow;
 
-    @media (max-width: 768px) {
-      font-size: 1.1rem;
+    @media (max-width: $breakpoint-tablet) {
+      font-size: $font-size-md;
     }
   }
 }
 
 .collapse-icon {
-  font-size: 1.25rem;
-  color: $primary-color;
-  transition: transform $transition-speed ease;
+  font-size: $font-size-lg;
+  color: $color-primary-green;
+  transition: transform $transition-normal;
   flex-shrink: 0;
+  filter: $drop-shadow-green;
 
   &.rotate {
     transform: rotate(180deg);
@@ -204,7 +261,7 @@ $transition-speed: 0.3s;
 .collapse-content {
   max-height: 0;
   overflow: hidden;
-  transition: max-height $transition-speed ease;
+  transition: max-height $transition-normal;
 
   &.open {
     max-height: 2000px;
@@ -212,23 +269,33 @@ $transition-speed: 0.3s;
 }
 
 .collapse-body {
-  padding: 0 1.5rem 1.5rem;
-  color: $text-dark;
-  line-height: 1.6;
+  padding: $spacing-md;
+  color: $text-light;
+  line-height: $line-height-relaxed;
 
   p {
     margin: 0;
-    font-size: 1rem;
+    font-size: $font-size-sm;
   }
 
   ul {
     margin: 0;
-    padding-left: 1.5rem;
-    list-style-type: disc;
+    padding-left: $spacing-md;
+    list-style-type: none;
 
     li {
       margin-bottom: 0.75rem;
-      font-size: 1rem;
+      font-size: $font-size-sm;
+      position: relative;
+      padding-left: $spacing-md;
+
+      &::before {
+        content: '▹';
+        position: absolute;
+        left: 0;
+        color: $color-primary-green;
+        font-weight: bold;
+      }
 
       &:last-child {
         margin-bottom: 0;
@@ -241,34 +308,38 @@ $transition-speed: 0.3s;
 .stack-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  gap: $spacing-sm;
 }
 
 .stack-item {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: $spacing-xs;
   padding: 0.75rem 1.25rem;
-  background-color: #f3f4f6;
-  border-radius: 0.5rem;
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: $text-dark;
-  border: 1px solid $border-color;
-  transition: all $transition-speed ease;
+  background: $cyan-10;
+  backdrop-filter: $backdrop-blur-light;
+  border-radius: $border-radius-sm;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  color: $color-primary-cyan;
+  border: 1px solid $border-color-primary;
+  transition: $transition-normal;
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 6px -1px $shadow-color;
+    box-shadow: 0 0 15px $cyan-40;
+    border-color: $border-color-hover;
+    background: rgba(0, 217, 255, 0.15);
   }
 }
 
 .stack-icon {
-  font-size: 1.5rem;
-  color: $primary-color;
+  font-size: $font-size-xl;
+  color: $color-primary-green;
+  filter: $drop-shadow-green;
 }
 
 .stack-name {
-  color: $text-dark;
-  font-weight: 600;
+  color: $color-primary-cyan;
+  font-weight: $font-weight-semibold;
 }
