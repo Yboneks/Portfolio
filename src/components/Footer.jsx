@@ -13,7 +13,7 @@ export function Footer() {
             aria-label="GitHub"
             title="Voir mon GitHub"
           >
-            <FaGithub />
+            <FaGithub className="footer__social-icon" aria-hidden="true" />
           </a>
           <a 
             href="https://linkedin.com/in/joshua-ormeray-696799180/" 
@@ -23,7 +23,7 @@ export function Footer() {
             aria-label="LinkedIn"
             title="Voir mon LinkedIn"
           >
-            <FaLinkedin />
+            <FaLinkedin className="footer__social-icon" aria-hidden="true" />
           </a>
         </div>
 

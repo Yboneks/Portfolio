@@ -21,10 +21,27 @@ export function Carousel() {
     );
   };
 
+  const goToSlide = (index) => {
+    setCurrentIndex(index);
+  };
+
   const currentProject = projects[currentIndex];
 
   const handleProjectClick = () => {
     navigate(`/projet/${currentProject.slug}`);
+  };
+
+  // Gestion de la navigation au clavier sur les indicateurs
+  const handleIndicatorKeyDown = (e, index) => {
+    if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      const newIndex = index === 0 ? totalProjects - 1 : index - 1;
+      goToSlide(newIndex);
+    } else if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      const newIndex = index === totalProjects - 1 ? 0 : index + 1;
+      goToSlide(newIndex);
+    }
   };
 
   return (
@@ -37,10 +54,9 @@ export function Carousel() {
           <div className="project-card" onClick={handleProjectClick}>
             {/* Image du projet */}
             <div className="project-card-image">
-              {/* Remplacez cette div par votre vraie image */}
               <img
                 src={currentProject.image}
-                alt={currentProject.title}
+                alt={`Capture d'écran du projet ${currentProject.title}`}
                 loading="lazy"       
                 decoding="async"     
                 fetchPriority="low"  
@@ -63,8 +79,9 @@ export function Carousel() {
                   rel="noopener noreferrer"
                   className="project-github-link"
                   onClick={(e) => e.stopPropagation()}
+                  aria-label={`Voir le code source du projet ${currentProject.title} sur GitHub`}
                 >
-                  <FaGithub className="github-icon" />
+                  <FaGithub className="github-icon" aria-hidden="true" />
                   GitHub
                 </a>
               </div>
@@ -77,28 +94,43 @@ export function Carousel() {
               <button
                 onClick={goToPrev}
                 className="carousel-btn carousel-btn-prev"
+                aria-label="Voir le projet précédent"
+                type="button"
               >
-                <FaChevronLeft className="carousel-icon" />
+                <FaChevronLeft className="carousel-icon" aria-hidden="true" />
               </button>
               
               <button
                 onClick={goToNext}
                 className="carousel-btn carousel-btn-next"
+                aria-label="Voir le projet suivant"
+                type="button"
               >
-                <FaChevronRight className="carousel-icon" />
+                <FaChevronRight className="carousel-icon" aria-hidden="true" />
               </button>
             </>
           )}
 
           {/* Indicateurs de navigation */}
-          <div className="carousel-indicators">
-            {projects.map((_, index) => (
+          <div 
+            className="carousel-indicators" 
+            role="tablist" 
+            aria-label="Navigation des projets"
+          >
+            {projects.map((project, index) => (
               <button
                 key={index}
-                onClick={() => setCurrentIndex(index)}
+                onClick={() => goToSlide(index)}
+                onKeyDown={(e) => handleIndicatorKeyDown(e, index)}
                 className={`carousel-indicator ${
                   index === currentIndex ? "active" : ""
                 }`}
+                role="tab"
+                aria-selected={index === currentIndex}
+                aria-label={`Aller au projet ${index + 1} - ${project.title}`}
+                aria-controls={`project-${project.slug}`}
+                tabIndex={index === currentIndex ? 0 : -1}
+                type="button"
               />
             ))}
           </div>
