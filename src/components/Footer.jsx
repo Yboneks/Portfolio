@@ -6,7 +6,7 @@ export function Footer() {
       <div className="footer__container">
         <div className="footer__social">
           <a 
-            href="https://github.com/ton-username" 
+            href="https://github.com/Yboneks" 
             target="_blank" 
             rel="noopener noreferrer"
             className="footer__social-link"
@@ -16,7 +16,7 @@ export function Footer() {
             <FaGithub />
           </a>
           <a 
-            href="https://linkedin.com/in/ton-profil" 
+            href="https://linkedin.com/in/joshua-ormeray-696799180/" 
             target="_blank" 
             rel="noopener noreferrer"
             className="footer__social-link"

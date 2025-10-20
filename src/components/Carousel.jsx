@@ -38,9 +38,12 @@ export function Carousel() {
             {/* Image du projet */}
             <div className="project-card-image">
               {/* Remplacez cette div par votre vraie image */}
-              <img 
-                src={currentProject.image} 
+              <img
+                src={currentProject.image}
                 alt={currentProject.title}
+                loading="lazy"       
+                decoding="async"     
+                fetchPriority="low"  
               />
             </div>
 
