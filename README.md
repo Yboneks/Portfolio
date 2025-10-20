@@ -1,16 +1,70 @@
-# React + Vite
+# Portfolio Personnel
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Un portfolio moderne développé avec React et Vite, présentant mes projets et compétences en développement web.
 
-Currently, two official plugins are available:
+## 🚀 Technologies Utilisées
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React 18
+- Vite
+- React Router DOM
+- SASS/SCSS
+- React Icons
 
-## React Compiler
+## 🛠 Installation
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. Clonez le repository
+```bash
+git clone https://github.com/Yboneks/Portfolio.git
+```
 
-## Expanding the ESLint configuration
+2. Installez les dépendances
+```bash
+cd Portfolio
+npm install
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+3. Lancez le serveur de développement
+```bash
+npm run dev
+```
+
+## 📁 Structure du Projet
+
+```
+src/
+├── assets/         # Images et ressources
+├── components/     # Composants réutilisables
+├── data/          # Données JSON (projets)
+├── layout/        # Composants de mise en page
+├── pages/         # Pages de l'application
+├── router/        # Configuration des routes
+├── styles/        # Styles SCSS
+└── utils/         # Utilitaires
+```
+
+## 🎨 Fonctionnalités
+
+- Design moderne et responsive
+- Animation et transitions fluides
+- Carrousel de projets interactif
+- Navigation fluide entre les pages
+- Chargement optimisé des images
+
+## 📱 Responsive Design
+
+Le portfolio est entièrement responsive et s'adapte à tous les écrans :
+- Mobile : 320px et plus
+- Tablette : 768px et plus
+- Desktop : 1024px et plus
+
+## 🔧 Scripts Disponibles
+
+- `npm run dev` : Lance le serveur de développement
+- `npm run build` : Crée une version de production
+- `npm run preview` : Prévisualise la version de production
+
+## 📝 License
+
+MIT
+
+Projet Link: [https://github.com/Yboneks/Portfolio]
