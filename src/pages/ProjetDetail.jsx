@@ -4,6 +4,7 @@ import { FaGithub, FaArrowLeft, FaChevronDown, FaReact, FaHtml5, FaCss3Alt, FaSa
 import { SiJavascript, SiLighthouse, SiReactrouter, SiExpress, SiMongodb, SiJsonwebtokens } from "react-icons/si";
 import { BsFileImage } from "react-icons/bs";
 import projectsData from '../data/projet.json';
+import {Erreur} from '../pages/Erreur';
 
 // Mapping des icônes
 const iconMap = {
@@ -45,12 +46,12 @@ export function ProjetDetail() {
   // Trouver le projet correspondant au slug
   const project = projectsData.projects.find(p => p.slug === slug);
 
-  // scroll en haut au montage / quand project change
+
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
   }, [project]);
 
-  // État pour gérer l'ouverture des collapses
+
   const [openSections, setOpenSections] = useState({
     contexte: false,
     objectifs: false,
@@ -68,23 +69,13 @@ export function ProjetDetail() {
     }));
   };
 
-  // Si le projet n'existe pas, rediriger vers l'accueil
+  // Si le projet n'existe pas on applique erreur
   if (!project) {
-    return (
-      <div className="projet-detail-container">
-        <div className="projet-not-found">
-          <h2>Projet non trouvé</h2>
-          <button onClick={() => navigate('/')} className="btn-back">
-            <FaArrowLeft /> Retour à l'accueil
-          </button>
-        </div>
-      </div>
-    );
+    return <Erreur/>;
   }
 
   return (
     <div className="projet-detail-container">
-      {/* Header avec image et titre */}
       <div className="projet-header">
         <button onClick={() => navigate('/')} className="btn-back">
           <FaArrowLeft /> Retour
@@ -95,6 +86,7 @@ export function ProjetDetail() {
             src={project.image} 
             alt={project.title}
             className="projet-hero-image"
+            loading="lazy"
           />
           <div className="projet-hero-overlay">
             <h1 className="projet-title">{project.title}</h1>

@@ -2,7 +2,7 @@
 
 Un portfolio moderne développé avec React et Vite, présentant mes projets et compétences en développement web.
 
-## 🚀 Technologies Utilisées
+## Technologies Utilisées
 
 - React 18
 - Vite
@@ -10,7 +10,7 @@ Un portfolio moderne développé avec React et Vite, présentant mes projets et 
 - SASS/SCSS
 - React Icons
 
-## 🛠 Installation
+## Installation
 
 1. Clonez le repository
 ```bash
@@ -28,7 +28,7 @@ npm install
 npm run dev
 ```
 
-## 📁 Structure du Projet
+## Structure du Projet
 
 ```
 src/
@@ -42,7 +42,7 @@ src/
 └── utils/         # Utilitaires
 ```
 
-## 🎨 Fonctionnalités
+## Fonctionnalités
 
 - Design moderne et responsive
 - Animation et transitions fluides
@@ -50,20 +50,20 @@ src/
 - Navigation fluide entre les pages
 - Chargement optimisé des images
 
-## 📱 Responsive Design
+## Responsive Design
 
 Le portfolio est entièrement responsive et s'adapte à tous les écrans :
 - Mobile : 320px et plus
 - Tablette : 768px et plus
 - Desktop : 1024px et plus
 
-## 🔧 Scripts Disponibles
+## Scripts Disponibles
 
 - `npm run dev` : Lance le serveur de développement
 - `npm run build` : Crée une version de production
 - `npm run preview` : Prévisualise la version de production
 
-## 📝 License
+## License
 
 MIT
 

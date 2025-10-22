@@ -1,0 +1,80 @@
+@use '../utils/variables' as *;
+
+
+.erreur-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: $gradient-background;
+  padding: $spacing-xl;
+
+  h1 {
+    font-size: clamp(6rem, 20vw, 12rem);
+    background: $gradient-text;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: $spacing-md;
+  }
+
+  p {
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    color: $text-light;
+    margin-bottom: $spacing-xl;
+  }
+
+  .btn-back {
+    padding: $spacing-md $spacing-xl;
+    border: none;
+    border-radius: $border-radius-md;
+    background: $gradient-primary;
+    color: $text-white;
+    cursor: pointer;
+    transition: $transition-normal;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: $shadow-dark-hover;
+    }
+  }
+}
+
+// RESPONSIVE
+
+
+@media (max-width: $breakpoint-tablet) {
+  .erreur-container {
+    padding: $spacing-md;
+
+    h1 {
+      margin-bottom: $spacing-sm;
+    }
+
+    p {
+      margin-bottom: $spacing-lg;
+      font-size: $font-size-lg;
+    }
+
+    .btn-back {
+      padding: $spacing-sm $spacing-md;
+      font-size: $font-size-sm;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-mobile) {
+  .erreur-container {
+    padding: $spacing-sm;
+
+    h1 {
+      font-size: $font-size-huge;
+    }
+
+    p {
+      font-size: $font-size-md;
+    }
+  }
+}

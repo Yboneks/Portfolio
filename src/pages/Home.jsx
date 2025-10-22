@@ -7,7 +7,7 @@ import {Hero} from '../components/Hero';
 export function Home() {
     const location = useLocation();
 
-    // Gère le scroll automatique vers la section
+    
     useEffect(() => {
         if (location.hash) {
             const element = document.querySelector(location.hash);
@@ -19,17 +19,14 @@ export function Home() {
 
     return (
         <div>
-            {/* Section Accueil */}
             <section id="accueil" className="min-h-screen">
                 <Hero/>
             </section>
 
-            {/* Section À propos */}
             <section id="a-propos" className="min-h-screen">
                 <About/>
             </section>
 
-            {/* Section Projets */}
             <section id="projets" className="min-h-screen">
                 <Carousel/>
             </section>
