@@ -6,7 +6,7 @@ import { BsFileImage } from "react-icons/bs";
 import projectsData from '../data/projet.json';
 import {Erreur} from '../pages/Erreur';
 
-// Mapping des icônes
+// Map des icônes
 const iconMap = {
   'FaHtml5': FaHtml5,
   'FaCss3Alt': FaCss3Alt,
@@ -22,7 +22,7 @@ const iconMap = {
   'SiJsonwebtokens': SiJsonwebtokens
 };
 
-// Composant Collapse réutilisable
+
 function Collapse({ title, children, isOpen, onToggle }) {
   return (
     <div className="collapse">
@@ -61,7 +61,6 @@ export function ProjetDetail() {
     ameliorations: false
   });
 
-  // Toggle d'une section
   const toggleSection = (section) => {
     setOpenSections(prev => ({
       ...prev,
@@ -69,7 +68,7 @@ export function ProjetDetail() {
     }));
   };
 
-  // Si le projet n'existe pas on applique erreur
+  // Si le projet n'existe pas on applique le composant erreur
   if (!project) {
     return <Erreur/>;
   }
@@ -102,7 +101,6 @@ export function ProjetDetail() {
         </div>
       </div>
 
-      {/* Contenu avec collapses */}
       <div className="projet-content">
         {/* Contexte */}
         <Collapse 

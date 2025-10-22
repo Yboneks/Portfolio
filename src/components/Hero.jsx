@@ -7,9 +7,9 @@ export function Hero() {
     const [titleVisible, setTitleVisible] = useState(false);
 
     useEffect(() => {
-        // Animation du titre
+        
         setTimeout(() => setTitleVisible(true), 300);
-        // Apparition de la navigation après 2 secondes
+        
         setTimeout(() => setShowNav(true), 1000);
     }, []);
 
@@ -24,10 +24,10 @@ export function Hero() {
         <section className="hero" id="accueil">
             <div className="hero__overlay"></div>
             
-            {/* Effet de grille cyber */}
+            
             <div className="hero__grid"></div>
             
-            {/* Logo intégré dans le Hero */}
+            
             <div className="hero__header">
                 <img src={Logo} alt="Logo du développeur" className="hero__logo" />
             </div>
@@ -56,14 +56,14 @@ export function Hero() {
                     </button>
                 </nav>
 
-                {/* Indicateur de scroll */}
+                
                 <div className={`hero__scroll-indicator ${showNav ? 'hero__scroll-indicator--visible' : ''}`}>
                     <div className="hero__scroll-line"></div>
                     <span>Scroll</span>
                 </div>
             </div>
 
-            {/* Particules décoratives */}
+            
             <div className="hero__particles">
                 <div className="hero__particle"></div>
                 <div className="hero__particle"></div>

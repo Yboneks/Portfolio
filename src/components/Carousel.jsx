@@ -88,7 +88,6 @@ export function Carousel() {
             </div>
           </div>
 
-          {/* Boutons de navigation */}
           {totalProjects > 1 && (
             <>
               <button
